@@ -1,6 +1,12 @@
 * {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Recursive', sans-serif;
+}
+
+h1{
+    font-family: 'Righteous', cursive;
+    font-weight: 400;
+    color: #FFFFFF;
 }
 
 body{
@@ -23,10 +29,8 @@ body{
 }
 
 .start-screen h1{
-    font-weight: 400;
     font-size: 35px;
     line-height: 31px;
-    color: #FFFFFF;
     margin-top: 3vh;
 }
 
@@ -43,3 +47,107 @@ body{
     color: #D70900;
 }
 
+.main-screen{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.main-screen header{
+    display: flex;
+    align-items: center;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+
+.main-screen header h1{
+    font-size: 20px;
+    line-height: 25px;
+}
+.main-screen header img{
+    width: 26px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.main-screen footer{
+    background: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-screen p{
+    font-family: 'Recursive', sans-serif;  /* por algum motivo tive que declarar isso aqui denovo */
+    font-size: 12px;
+    line-height: 14px;
+    color: #333333;
+}
+
+
+.flashcard{
+    width: 90vw;
+    height: 40px;
+    max-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 12px;
+}
+
+.flashcard p{
+    font-weight: 700;  
+}
+
+.flashcard ion-icon{
+    font-size: 25px;
+    font-weight: 700;
+    color: #333333;
+}
+
+
+
+
+
+
+@media (min-width: 600px) {
+    .flashcard{
+        height: 55px;
+    }
+    .main-screen header h1{
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .main-screen header img{
+        width: 40px;
+        height: 46px;
+        margin-right: 20px;
+    }
+
+    .main-screen footer p{
+        font-size: 19px;
+    }
+    
+    .flashcard p{   
+        font-size: 17px;
+    }
+
+    .flashcard ion-icon{
+        font-size: 38px;
+    }
+}
+  
