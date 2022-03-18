@@ -1,15 +1,17 @@
 import React from 'react';
 
 export default function MainScreen(props){
-    const flashcards = [
-        {number: 1, question:"O que é JSX?", answer: "Uma extensão de linguagem do JavaScript" },
-        {number: 2, question:"O React é __", answer: "uma biblioteca JavaScript para construção de interfaces" },
-        {number: 3, question:"Componentes devem iniciar com __ ", answer: "letra maiúscula" },
-        {number: 4, question:"Podemos colocar __ dentro do JSX", answer: "expressões" },
+    let flashcards = [
+        {question:"O que é JSX?", answer: "Uma extensão de linguagem do JavaScript" },
+        {question:"O React é __", answer: "uma biblioteca JavaScript para construção de interfaces" },
+        {question:"Componentes devem iniciar com __ ", answer: "letra maiúscula" },
+        {question:"Podemos colocar __ dentro do JSX", answer: "expressões" },
     ]
 
     const {hidden} = props;
     const htmlClasses = `main-screen ${hidden ? "hidden" : ""}`;
+ 
+    flashcards.sort(() => Math.random() - 0.5);
 
     return(
         <div className={htmlClasses}>
@@ -19,7 +21,7 @@ export default function MainScreen(props){
             </header>
             <main>
                 <div className="flashcards">
-                    {flashcards.map(flashcard => <Flashcard number = {flashcard.number} question={flashcard.question} answer={flashcard.answer}/>)}                                      
+                    {flashcards.map((flashcard, index) => <Flashcard number = {index + 1} question={flashcard.question} answer={flashcard.answer}/>)}                                      
                 </div>
             </main>
             <footer>
