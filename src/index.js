@@ -1,12 +1,15 @@
 import ReactDOM from 'react-dom'
 import MainScreen from './MainScreen';
 import StartScreen from './StartScreen';
+import React from 'react';
 
 function App(){
+    const [isHidden, setHidden] = React.useState(false);
+
     return(
         <>
-            {/* <StartScreen/> */}
-            <MainScreen/>
+            <StartScreen hidden={isHidden} callback={() => setHidden(true)}/>
+            <MainScreen hidden={!isHidden}/>
         </>
     )
 }

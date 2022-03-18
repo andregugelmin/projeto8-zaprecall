@@ -1,10 +1,12 @@
-export default function StartScreen(){
+export default function StartScreen(props){
+    const {hidden, callback} = props;
+    const htmlClasses = `start-screen ${hidden ? "hidden" : ""}`;
     return(
-        <div className="start-screen">
+        <div className={htmlClasses}>
             <img src= 'assets/logo.png' alt='logo'/>
             <h1>ZapRecall</h1>
-            <button>Iniciar Recall!</button>
+            <button onClick={callback}>Iniciar Recall!</button>
         </div>
 
     )
-}
+}   

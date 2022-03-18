@@ -39,7 +39,8 @@ body{
     border: 1px solid #D70900;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    width: 50%;
+    width: 70%;
+    max-width: 260px;
     height: 40px;
     margin-top: 19vh;
     font-weight: 400;
@@ -95,36 +96,120 @@ body{
 
 
 .flashcard{
-    width: 90vw;
-    height: 40px;
-    max-height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 90vw;   
     background: #FFFFFF;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     margin-bottom: 5px;
     padding-left: 6px;
-    padding-right: 12px;
+
 }
 
 .flashcard p{
-    font-weight: 700;  
+    margin-right: 10px;
 }
 
-.flashcard ion-icon{
+.unselected{
+    height: 40px;
+    max-height: 55px; 
+    padding-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700; 
+}
+
+.unselected ion-icon{
     font-size: 25px;
     font-weight: 700;
     color: #333333;
 }
 
+.question{
+    position: relative;
+    height: 80px;
+    font-weight: 400;
+    padding-top: 13px;
+}
+
+.question img{
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+}
+
+.answer{
+    height: 80px;
+    font-weight: 400;
+    padding-top: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    max-width: 330px;
+}
+
+.option{    
+    height: 24px;
+    width: 100%;
+    max-width: 100px;
+    margin-right: 5px;
+    font-weight: 400;
+    font-size: 7px;
+    line-height: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.hidden{
+    display: none;
+}
+
+.red{
+    background: #FF3030;
+}
+
+.yellow{
+    background: #FF922E;
+}
+
+.green{
+    background: #2FBE34;
+}
 
 
+@media(min-width: 372px){
+    .start-screen button{
+        height: 55px;
+    }
+    .option{    
+        font-size: 10px;
+        line-height: 8px;
+    }
+    .question img{
+        height: 38px;
+        width: 25px;
+        height: 15px;
+    }
+    .question{
+        height: 90px;
+    }
+    .answer{
+        height: 90px;
+    }
+}
 
-
-
-@media (min-width: 600px) {
+@media (min-width: 500px) {    
     .flashcard{
         height: 55px;
     }
@@ -149,5 +234,29 @@ body{
     .flashcard ion-icon{
         font-size: 38px;
     }
+
+    .question{
+        height: 120px;
+    }
+    .question img{
+        width: 30px;
+        height: 19.5px;
+    }
+    
+    .answer{
+        height: 120px;
+    }
+
+    .options{
+        max-width: 500px;
+    }
+    .option{    
+        height: 44px;
+        max-width: 150px;
+        margin-right: 10px;
+        font-size: 14px;
+        line-height: 12px;
+    }
+    
 }
   
