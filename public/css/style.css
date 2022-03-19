@@ -83,10 +83,17 @@ body{
     bottom: 0;
     left: 0;
     right: 0;
-    height: 13vh;
+    padding-top: 20px;
+    padding-bottom: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.footer-icons{
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 .main-screen p{
@@ -173,6 +180,27 @@ body{
     color: #FFFFFF;
 }
 
+.final-message{
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.final-message span{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.final-message img{
+    margin-right: 12px;
+}
+
+.final-message strong{
+    font-weight: 700;
+    color: #333333
+}
+
 .bad p{
     color: #FF3030;
     text-decoration-line: line-through;
@@ -213,25 +241,67 @@ body{
     background: #2FBE34;
 }
 
+.red-icon{
+    color: #FF3030;
+}
+
+.yellow-icon{
+    color: #FF922E;
+}
+
+.green-icon{
+    color: #2FBE34;
+}
+
 
 @media(min-width: 372px){
     .start-screen button{
         height: 55px;
     }
+
+    .flashcard{
+      padding-left: 10px;
+    }
+
     .option{    
+        height: 36px;
+        max-width: 130px;
         font-size: 10px;
         line-height: 8px;
+        margin-right: 8px;
+    }
+    .options{
+        max-width: 500px;
     }
     .question img{
         height: 38px;
         width: 25px;
         height: 15px;
     }
+
     .question{
         height: 90px;
     }
+
     .answer{
         height: 90px;
+    }
+    
+    .footer-icons{
+        font-size: 25px;
+    }
+
+    .final-message img{
+        width: 22px;
+        height: 22px;
+    }
+    
+    .final-message strong{
+        font-size: 20px;
+    }
+    
+    .final-message p{
+        margin-bottom: 3px;
     }
 }
 
@@ -276,9 +346,6 @@ body{
         height: 120px;
     }
 
-    .options{
-        max-width: 500px;
-    }
     .option{    
         height: 44px;
         max-width: 150px;
@@ -286,6 +353,21 @@ body{
         font-size: 14px;
         line-height: 12px;
     }
+    .footer-icons{
+        font-size: 30px;
+    }
+
+    .final-message img{
+        width: 25px;
+        height: 25px;
+    }
+
+    .final-message strong{
+        font-size: 24px;
+    }
     
+    .final-message p{
+        margin-bottom: 7px;
+    }
 }
   

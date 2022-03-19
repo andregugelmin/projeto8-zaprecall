@@ -9,7 +9,7 @@ function App(){
     return(
         <>
             <StartScreen hidden={isHidden} callback={() => setHidden(true)}/>
-            <MainScreen hidden={!isHidden}/>
+            <MainScreen numberOfCards = {4} hidden={!isHidden}/>
         </>
     )
 }

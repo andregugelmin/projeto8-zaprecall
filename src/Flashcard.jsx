@@ -1,7 +1,8 @@
 import React from 'react';
+import Setinha from './assets/setinha.png'
 
 export default function Flashcard(props){
-    const {number, question, answer} = props;
+    const {number, question, answer, callback} = props;
 
     const options = [
         {color: 'red', text:"Não lembrei"},
@@ -12,6 +13,9 @@ export default function Flashcard(props){
     const [selection, setSelection] = React.useState('unselected');
     const [answered, setAnswered] = React.useState(0);
     const [answeredClass, setAnsweredClass] = React.useState('');
+
+    const answerClass = ['bad', 'medium', 'good'];
+
     const icons = [
         "play-outline",
         "close-circle-sharp",
@@ -19,12 +23,13 @@ export default function Flashcard(props){
         "checkmark-circle-sharp"
     ]
 
-    const answerClass = ['bad', 'medium', 'good'];
+  
 
     function selectOption(number){
         setAnswered(number);
         setSelection('unselected');
         setAnsweredClass(answerClass[number-1]);
+        callback(icons[number]);
     }
     
     
@@ -39,7 +44,7 @@ export default function Flashcard(props){
             <div className="flashcard">
                 <div className="question">
                     <p>{question}</p>
-                    <img src= 'assets/setinha.png' alt='setinha' onClick={()=> setSelection('answer')}/>
+                    <img src= {Setinha} alt='setinha' onClick={()=> setSelection('answer')}/>
                 </div>
             </div>
     ) : (
