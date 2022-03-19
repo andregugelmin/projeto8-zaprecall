@@ -2,22 +2,24 @@ import React from 'react';
 import Party from './assets/party.png'
 import Sad from './assets/sad.png'
 
-let badAnswers = 0;
+
 
 export default function Footer(props){
-    const {cardsAnswered, numberOfCards, icons, callback} = props;
+    const {zapGoal, zapAnswers, cardsAnswered, numberOfCards, icons, callback} = props;
+
     let finalMessage = '';
     let finalButton = '';
-    if(cardsAnswered == numberOfCards){
-        if(badAnswers===0){
+
+    if(cardsAnswered === numberOfCards){
+        if(zapAnswers >= parseInt(zapGoal)){
             finalMessage = (
                 <div className="final-message">
                     <span>
                         <img src={Party} alt="party"/>
                         <strong>Parabéns!</strong>
                     </span>                    
-                    <p>Você não esqueceu de</p>
-                    <p>nenhum flashcard!</p>
+                    <p>Você atingiu sua</p>
+                    <p>meta de zap!</p>
                 </div>
             )
             
@@ -49,11 +51,10 @@ export default function Footer(props){
 }
 
 function FooterIcon(props){
-    const {iconName} = props;
+    const {iconName, callback} = props;
     let color = '';
     if(iconName === "close-circle-sharp"){
         color = 'red-icon'
-        badAnswers++;
     }  
     else if(iconName === "help-circle-sharp"){
         color = 'yellow-icon';

@@ -16,13 +16,15 @@ export default function MainScreen(props){
 
     const [icons, setIcons] = React.useState([]);
 
-    const {numberOfCards, callback} = props;
+    const {numberOfCards, callback, zapGoal} = props;
 
     const [cardsAnswered, setCardsAnswered] = React.useState(0);
+    const [zapAnswers, setZapAnswers] = React.useState(0);
  
     function updateCardsAnswered(iconName){        
         setCardsAnswered(cardsAnswered+1);
         setIcons([...icons, iconName]);
+        if(iconName === "checkmark-circle-sharp") setZapAnswers(zapAnswers+1);
     }   
 
     function restartRecall(){
@@ -40,7 +42,7 @@ export default function MainScreen(props){
                     {flashcards.map((flashcard, index) => <Flashcard number = {index + 1} question={flashcard.question} answer={flashcard.answer} callback = {updateCardsAnswered}/>)}                                      
                 </div>
             </main>
-            <Footer cardsAnswered={cardsAnswered} numberOfCards={numberOfCards} icons={icons} callback = {restartRecall}/>
+            <Footer zapGoal={zapGoal} zapAnswers = {zapAnswers} cardsAnswered={cardsAnswered} numberOfCards={numberOfCards} icons={icons} callback = {restartRecall}/>
         </div>
     )
 }
