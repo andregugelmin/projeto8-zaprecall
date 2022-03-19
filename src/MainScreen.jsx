@@ -1,10 +1,8 @@
 import React from 'react';
 import Flashcard from './Flashcard';
+import Footer from './Footer';
 import LogoPequeno from './assets/logo-pequeno.png'
-import Party from './assets/party.png'
-import Sad from './assets/sad.png'
 
-let badAnswers = 0;
 
 export default function MainScreen(props){
     let flashcards = [
@@ -17,10 +15,8 @@ export default function MainScreen(props){
 
 
     const [icons, setIcons] = React.useState([]);
-    const [color, setColor] = React.useState('red-icon');
 
-    const {numberOfCards, hidden} = props;
-    const htmlClasses = `main-screen ${hidden ? "hidden" : ""}`;
+    const {numberOfCards, callback} = props;
 
     const [cardsAnswered, setCardsAnswered] = React.useState(0);
  
@@ -29,8 +25,12 @@ export default function MainScreen(props){
         setIcons([...icons, iconName]);
     }   
 
+    function restartRecall(){
+        callback();
+    }
+
     return(
-        <div className={htmlClasses}>
+        <div className={"main-screen"}>
             <header>
                 <img src= {LogoPequeno} alt='logo-pequeno'/>
                 <h1>ZapRecall</h1>
@@ -40,64 +40,10 @@ export default function MainScreen(props){
                     {flashcards.map((flashcard, index) => <Flashcard number = {index + 1} question={flashcard.question} answer={flashcard.answer} callback = {updateCardsAnswered}/>)}                                      
                 </div>
             </main>
-            <Footer cardsAnswered={cardsAnswered} numberOfCards={numberOfCards} icons={icons}/>
+            <Footer cardsAnswered={cardsAnswered} numberOfCards={numberOfCards} icons={icons} callback = {restartRecall}/>
         </div>
     )
 }
 
-function Footer(props){
-    const {cardsAnswered, numberOfCards, icons} = props;
-    let finalMessage = ''
-    if(cardsAnswered == numberOfCards){
-        if(badAnswers===0){
-            finalMessage = (
-                <div className="final-message">
-                    <span>
-                        <img src={Party} alt="party"/>
-                        <strong>Parabéns!</strong>
-                    </span>                    
-                    <p>Você não esqueceu de</p>
-                    <p>nenhum flashcard!</p>
-                </div>
-            )
-        }
-        else{
-            finalMessage = (
-                <div className="final-message">
-                    <span>
-                        <img src={Sad} alt="sad"/>
-                        <strong>Putz...</strong>
-                    </span>                    
-                    <p>Ainda faltam alguns...</p>
-                    <p>Mas não desanime!</p>
-                </div>
-            )
-        }        
-    }
-    return(
-        <footer>
-            {finalMessage}
-            <p>{cardsAnswered}/{numberOfCards} CONCLUÍDOS</p>
-            <span className="footer-icons">
-                {icons.map((icon) => <FooterIcon iconName = {icon}/>)}                                      
-            </span>
-        </footer>
-    )
-}
 
-function FooterIcon(props){
-    const {iconName} = props;
-    let color = '';
-    if(iconName === "close-circle-sharp"){
-        color = 'red-icon'
-        badAnswers++;
-    }  
-    else if(iconName === "help-circle-sharp"){
-        color = 'yellow-icon';
-    }
-    else{
-        color = 'green-icon'
-    }
-    return <ion-icon name={iconName} class={color}></ion-icon> 
-}
 

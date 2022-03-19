@@ -200,7 +200,18 @@ body{
     font-weight: 700;
     color: #333333
 }
-
+.footer-button{
+    width: 120px;
+    height: 28px;
+    background: #FB6B6B;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 .bad p{
     color: #FF3030;
     text-decoration-line: line-through;
@@ -302,6 +313,12 @@ body{
     
     .final-message p{
         margin-bottom: 3px;
+    }
+    .footer-button{
+        width: 167px;
+        height: 32px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }
 
